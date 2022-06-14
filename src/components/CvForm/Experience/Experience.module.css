@@ -1,0 +1,51 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title {
+  margin: 15px 0;
+}
+
+.form-container input,
+.form-container textarea {
+  border: none;
+  border-radius: 5px;
+  height: 35px;
+  padding-left: 5px;
+}
+
+.form-container input:focus {
+  outline: none;
+  border: 2px solid #aaa;
+}
+
+.form-container .description {
+  resize: none;
+  height: 80px;
+  padding: 5px;
+}
+
+.form-container button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  filter: brightness(0.5);
+}
+
+.form-container button:active {
+  filter: brightness(0.5);
+  transform: scale(0.995);
+}
+
+.form-container button:focus-visible {
+  filter: brightness(0.5);
+  outline: 2px solid #000;
+}
