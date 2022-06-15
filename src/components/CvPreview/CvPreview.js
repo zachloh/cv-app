@@ -9,7 +9,7 @@ class CvPreview extends Component {
     return (
       <div className={styles['cv-preview-container']}>
         <PersonalInfoPreview personalInfo={this.props.personalInfo} />
-        <ExperiencePreview />
+        <ExperiencePreview experience={this.props.experience} />
         <EducationPreview />
       </div>
     );

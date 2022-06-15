@@ -13,32 +13,3 @@
   height: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
-
-.job-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-top: 10px;
-  margin-bottom: 5px;
-}
-
-.job-title ~ .job-title {
-  margin-top: 20px;
-}
-
-.job-location {
-  margin-right: 10px;
-}
-
-.job-from {
-  margin-left: 10px;
-}
-
-.job-location,
-.job-from,
-.job-to {
-  font-style: italic;
-}
-
-.job-description {
-  margin-top: 10px;
-}

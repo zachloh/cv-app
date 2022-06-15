@@ -1,27 +1,28 @@
-.title {
-  margin: 15px 0;
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.button {
+.form-container button {
   background-color: #333;
   color: #fff;
   border: none;
   border-radius: 5px;
   padding: 10px;
   cursor: pointer;
-  width: 100%;
 }
 
-.button:hover {
+.form-container button:hover {
   filter: brightness(0.5);
 }
 
-.button:active {
+.form-container button:active {
   filter: brightness(0.5);
   transform: scale(0.995);
 }
 
-.button:focus-visible {
+.form-container button:focus-visible {
   filter: brightness(0.5);
   outline: 2px solid #000;
 }

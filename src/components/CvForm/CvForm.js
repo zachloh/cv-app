@@ -6,10 +6,23 @@ import styles from './CvForm.module.css';
 
 class CvForm extends Component {
   render() {
+    const {
+      onPersonalInfoChange,
+      experience,
+      onExperienceChange,
+      onDeleteExperience,
+      onAddExperience,
+    } = this.props;
+
     return (
       <div className={styles['cv-form-container']}>
-        <PersonalInfo onPersonalInfoChange={this.props.onPersonalInfoChange} />
-        <Experience />
+        <PersonalInfo onPersonalInfoChange={onPersonalInfoChange} />
+        <Experience
+          experience={experience}
+          onExperienceChange={onExperienceChange}
+          onDeleteExperience={onDeleteExperience}
+          onAddExperience={onAddExperience}
+        />
         <Education />
         <button className={styles.button}>Reset</button>
       </div>
