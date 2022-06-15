@@ -14,7 +14,7 @@ class ExperienceItem extends Component {
             {company}
             {company ? ',' : ''} {city}
           </span>
-          {company || city ? '|' : ''}
+          {from || to ? '|' : ''}
           <span className={styles['job-from']}>{from} </span>{' '}
           {from || to ? '-' : ''} <span className={styles['job-to']}>{to}</span>
         </p>
