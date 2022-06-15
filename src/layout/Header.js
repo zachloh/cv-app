@@ -3,7 +3,11 @@ import styles from './Header.module.css';
 
 class Header extends Component {
   render() {
-    return <div className={styles.header}>CV BUILDER</div>;
+    return (
+      <header>
+        <div className={styles.header}>CV BUILDER</div>
+      </header>
+    );
   }
 }
 
