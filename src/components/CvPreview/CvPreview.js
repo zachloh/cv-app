@@ -8,7 +8,7 @@ class CvPreview extends Component {
   render() {
     return (
       <div className={styles['cv-preview-container']}>
-        <PersonalInfoPreview />
+        <PersonalInfoPreview personalInfo={this.props.personalInfo} />
         <ExperiencePreview />
         <EducationPreview />
       </div>

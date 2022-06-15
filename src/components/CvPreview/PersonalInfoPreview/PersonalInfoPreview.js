@@ -6,33 +6,41 @@ import emailIcon from '../../../assets/images/email.svg';
 
 class PersonalInfoPreview extends Component {
   render() {
+    const {
+      firstName,
+      lastName,
+      profession,
+      address,
+      contact,
+      email,
+      description,
+    } = this.props.personalInfo;
+
     return (
       <>
         <div className={styles.container}>
           <p className={styles.name}>
-            <span>Leong Aun</span>
-            <span> Loh</span>
+            <span>{firstName}</span>
+            <span> {lastName}</span>
           </p>
-          <p className={styles.profession}>Software Engineer</p>
-          <div className={styles.contact}>
-            <img src={phoneIcon} alt="phone icon" />
-            <span>0423223132</span>
-          </div>
+          <p className={styles.profession}>{profession}</p>
           <div className={styles.address}>
             <img src={homeIcon} alt="home icon" />
-            <span>9 Observatory Street, Clyde North</span>
+            <span>{address}</span>
+          </div>
+          <div className={styles.contact}>
+            <img src={phoneIcon} alt="phone icon" />
+            <span>{contact}</span>
           </div>
           <div className={styles.email}>
             <img src={emailIcon} alt="email icon" />
-            <span>blabla@gmail.com</span>
+            <span>{email}</span>
           </div>
         </div>
         <div className={styles.description}>
           <p className={styles['description-title']}>Description</p>
           <hr />
-          <p className={styles['description-message']}>
-            This is my test description for my fake profession.
-          </p>
+          <p className={styles['description-message']}>{description}</p>
         </div>
       </>
     );

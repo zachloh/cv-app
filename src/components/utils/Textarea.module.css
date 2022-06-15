@@ -1,0 +1,8 @@
+.textarea {
+  border: none;
+  border-radius: 5px;
+  height: 35px;
+  resize: none;
+  height: 80px;
+  padding: 5px;
+}

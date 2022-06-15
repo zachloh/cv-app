@@ -8,7 +8,7 @@ class CvForm extends Component {
   render() {
     return (
       <div className={styles['cv-form-container']}>
-        <PersonalInfo />
+        <PersonalInfo onPersonalInfoChange={this.props.onPersonalInfoChange} />
         <Experience />
         <Education />
         <button className={styles.button}>Reset</button>
