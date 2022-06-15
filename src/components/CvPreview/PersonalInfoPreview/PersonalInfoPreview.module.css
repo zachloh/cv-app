@@ -1,0 +1,53 @@
+.container {
+  background-color: #143e72;
+  color: #fff;
+  height: 215px;
+  padding: 15px 30px;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.profession {
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.contact,
+.address {
+  margin-bottom: 10px;
+}
+
+.contact,
+.address,
+.email {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.description {
+  padding: 20px 30px 10px;
+}
+
+.description-title {
+  color: #143e72;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.description hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+.description-message {
+  font-style: italic;
+}

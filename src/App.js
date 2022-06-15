@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CvForm from './components/CvForm/CvForm';
 import Header from './layout/Header';
 import './App.css';
+import CvPreview from './components/CvPreview/CvPreview';
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
         </header>
         <main>
           <CvForm />
+          <CvPreview />
         </main>
       </>
     );
