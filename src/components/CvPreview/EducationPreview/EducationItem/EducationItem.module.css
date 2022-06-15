@@ -1,0 +1,24 @@
+.course {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.course ~ .course {
+  margin-top: 20px;
+}
+
+.uni {
+  margin-right: 10px;
+}
+
+.uni-from {
+  margin: 0 2px 0 10px;
+}
+
+.uni,
+.uni-from,
+.uni-to {
+  font-style: italic;
+}

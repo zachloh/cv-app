@@ -13,32 +13,3 @@
   height: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
-
-.course {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-top: 10px;
-  margin-bottom: 5px;
-}
-
-.course ~ .course {
-  margin-top: 20px;
-}
-
-.uni {
-  margin-right: 10px;
-}
-
-.uni-from {
-  margin-left: 10px;
-}
-
-.uni,
-.uni-from,
-.uni-to {
-  font-style: italic;
-}
-
-.job-description {
-  margin-top: 10px;
-}

@@ -13,12 +13,20 @@ class Main extends Component {
           id: uuidv4(),
         },
       ],
+      education: [
+        {
+          id: uuidv4(),
+        },
+      ],
     };
 
     this.handlePersonalInfoChange = this.handlePersonalInfoChange.bind(this);
     this.handleExperienceChange = this.handleExperienceChange.bind(this);
     this.handleDeleteExperience = this.handleDeleteExperience.bind(this);
     this.handleAddExperience = this.handleAddExperience.bind(this);
+    this.handleEducationChange = this.handleEducationChange.bind(this);
+    this.handleDeleteEducation = this.handleDeleteEducation.bind(this);
+    this.handleAddEducation = this.handleAddEducation.bind(this);
   }
 
   handlePersonalInfoChange(prop, newInput) {
@@ -70,6 +78,44 @@ class Main extends Component {
     }));
   }
 
+  handleEducationChange(id, prop, newInput) {
+    this.setState((prevState) => {
+      const newEducation = prevState.education.map((edu) => {
+        if (edu.id === id) {
+          return {
+            ...edu,
+            [prop]: newInput,
+          };
+        }
+        return edu;
+      });
+
+      return {
+        education: newEducation,
+      };
+    });
+  }
+
+  handleDeleteEducation(id) {
+    this.setState((prevState) => {
+      const newEducation = prevState.education.filter((edu) => edu.id !== id);
+      return {
+        education: newEducation,
+      };
+    });
+  }
+
+  handleAddEducation() {
+    this.setState((prevState) => ({
+      education: [
+        ...prevState.education,
+        {
+          id: uuidv4(),
+        },
+      ],
+    }));
+  }
+
   render() {
     return (
       <main>
@@ -79,10 +125,15 @@ class Main extends Component {
           onExperienceChange={this.handleExperienceChange}
           onDeleteExperience={this.handleDeleteExperience}
           onAddExperience={this.handleAddExperience}
+          education={this.state.education}
+          onEducationChange={this.handleEducationChange}
+          onDeleteEducation={this.handleDeleteEducation}
+          onAddEducation={this.handleAddEducation}
         />
         <CvPreview
           personalInfo={this.state.personalInfo}
           experience={this.state.experience}
+          education={this.state.education}
         />
       </main>
     );

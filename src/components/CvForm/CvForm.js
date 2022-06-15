@@ -12,6 +12,10 @@ class CvForm extends Component {
       onExperienceChange,
       onDeleteExperience,
       onAddExperience,
+      education,
+      onEducationChange,
+      onDeleteEducation,
+      onAddEducation,
     } = this.props;
 
     return (
@@ -23,7 +27,12 @@ class CvForm extends Component {
           onDeleteExperience={onDeleteExperience}
           onAddExperience={onAddExperience}
         />
-        <Education />
+        <Education
+          education={education}
+          onEducationChange={onEducationChange}
+          onDeleteEducation={onDeleteEducation}
+          onAddEducation={onAddEducation}
+        />
         <button className={styles.button}>Reset</button>
       </div>
     );

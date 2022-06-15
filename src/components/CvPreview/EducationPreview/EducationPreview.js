@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EducationItem from './EducationItem/EducationItem';
 import styles from './EducationPreview.module.css';
 
 class EducationPreview extends Component {
@@ -7,24 +8,9 @@ class EducationPreview extends Component {
       <div className={styles.education}>
         <p className={styles['education-title']}>Education</p>
         <hr />
-        <p className={styles.course}>Bachelor of Computer Science</p>
-        <p>
-          <span className={styles.uni}>University of ABC, City A</span>|
-          <span className={styles['uni-from']}>2020</span> -{' '}
-          <span className={styles['uni-to']}>2021</span>
-        </p>
-        <p className={styles.course}>Bachelor of Computer Science</p>
-        <p>
-          <span className={styles.uni}>University of ABC, City A</span>|
-          <span className={styles['uni-from']}>2020</span> -{' '}
-          <span className={styles['uni-to']}>2021</span>
-        </p>
-        <p className={styles.course}>Bachelor of Computer Science</p>
-        <p>
-          <span className={styles.uni}>University of ABC, City A</span>|
-          <span className={styles['uni-from']}>2020</span> -{' '}
-          <span className={styles['uni-to']}>2021</span>
-        </p>
+        {this.props.education.map((edu) => (
+          <EducationItem key={edu.id} education={edu} />
+        ))}
       </div>
     );
   }
