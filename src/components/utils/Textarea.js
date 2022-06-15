@@ -3,7 +3,7 @@ import styles from './Textarea.module.css';
 
 class Textarea extends Component {
   render() {
-    const { name, placeholder, onChange } = this.props;
+    const { name, placeholder, onChange, value } = this.props;
 
     return (
       <textarea
@@ -11,6 +11,7 @@ class Textarea extends Component {
         name={name}
         placeholder={placeholder}
         onChange={onChange}
+        value={value}
       />
     );
   }

@@ -27,6 +27,7 @@ class Main extends Component {
     this.handleEducationChange = this.handleEducationChange.bind(this);
     this.handleDeleteEducation = this.handleDeleteEducation.bind(this);
     this.handleAddEducation = this.handleAddEducation.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
 
   handlePersonalInfoChange(prop, newInput) {
@@ -116,10 +117,35 @@ class Main extends Component {
     }));
   }
 
+  handleReset() {
+    this.setState({
+      personalInfo: {
+        firstName: '',
+        lastName: '',
+        profession: '',
+        address: '',
+        contact: '',
+        email: '',
+        description: '',
+      },
+      experience: [
+        {
+          id: uuidv4(),
+        },
+      ],
+      education: [
+        {
+          id: uuidv4(),
+        },
+      ],
+    });
+  }
+
   render() {
     return (
       <main>
         <CvForm
+          personalInfo={this.state.personalInfo}
           onPersonalInfoChange={this.handlePersonalInfoChange}
           experience={this.state.experience}
           onExperienceChange={this.handleExperienceChange}
@@ -129,6 +155,7 @@ class Main extends Component {
           onEducationChange={this.handleEducationChange}
           onDeleteEducation={this.handleDeleteEducation}
           onAddEducation={this.handleAddEducation}
+          onReset={this.handleReset}
         />
         <CvPreview
           personalInfo={this.state.personalInfo}

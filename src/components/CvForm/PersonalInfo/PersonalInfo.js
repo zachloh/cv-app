@@ -16,6 +16,16 @@ class PersonalInfo extends Component {
   };
 
   render() {
+    const {
+      firstName,
+      lastName,
+      profession,
+      address,
+      contact,
+      email,
+      description,
+    } = this.props.personalInfo;
+
     return (
       <>
         <h3 className={styles.title}>Personal Information</h3>
@@ -25,41 +35,48 @@ class PersonalInfo extends Component {
             name="firstName"
             placeholder="First name"
             onChange={this.handleInputChange}
+            value={firstName}
           />
           <Input
             type="text"
             name="lastName"
             placeholder="Last name"
             onChange={this.handleInputChange}
+            value={lastName}
           />
           <Input
             type="text"
             name="profession"
             placeholder="Profession"
             onChange={this.handleInputChange}
+            value={profession}
           />
           <Input
             type="text"
             name="address"
             placeholder="Address"
             onChange={this.handleInputChange}
+            value={address}
           />
           <Input
             type="text"
             name="contact"
             placeholder="Contact Number"
             onChange={this.handleInputChange}
+            value={contact}
           />
           <Input
             type="text"
             name="email"
             placeholder="Email"
             onChange={this.handleInputChange}
+            value={email}
           />
           <Textarea
             name="description"
             placeholder="Description"
             onChange={this.handleInputChange}
+            value={description}
           />
         </form>
       </>

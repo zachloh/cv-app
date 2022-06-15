@@ -7,6 +7,7 @@ import styles from './CvForm.module.css';
 class CvForm extends Component {
   render() {
     const {
+      personalInfo,
       onPersonalInfoChange,
       experience,
       onExperienceChange,
@@ -16,11 +17,15 @@ class CvForm extends Component {
       onEducationChange,
       onDeleteEducation,
       onAddEducation,
+      onReset,
     } = this.props;
 
     return (
       <div className={styles['cv-form-container']}>
-        <PersonalInfo onPersonalInfoChange={onPersonalInfoChange} />
+        <PersonalInfo
+          personalInfo={personalInfo}
+          onPersonalInfoChange={onPersonalInfoChange}
+        />
         <Experience
           experience={experience}
           onExperienceChange={onExperienceChange}
@@ -33,7 +38,9 @@ class CvForm extends Component {
           onDeleteEducation={onDeleteEducation}
           onAddEducation={onAddEducation}
         />
-        <button className={styles.button}>Reset</button>
+        <button className={styles.button} onClick={onReset}>
+          Reset
+        </button>
       </div>
     );
   }

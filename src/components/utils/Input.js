@@ -3,7 +3,7 @@ import styles from './Input.module.css';
 
 class Input extends Component {
   render() {
-    const { type, name, placeholder, onChange } = this.props;
+    const { type, name, placeholder, onChange, value } = this.props;
 
     return (
       <input
@@ -11,6 +11,7 @@ class Input extends Component {
         type={type}
         name={name}
         placeholder={placeholder}
+        value={value}
         onChange={onChange}
       />
     );
