@@ -1,49 +1,33 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import CvForm from './CvForm/CvForm';
 import CvPreview from './CvPreview/CvPreview';
 import { v4 as uuidv4 } from 'uuid';
 
-class Main extends Component {
-  constructor() {
-    super();
-    this.state = {
-      personalInfo: {},
-      experience: [
-        {
-          id: uuidv4(),
-        },
-      ],
-      education: [
-        {
-          id: uuidv4(),
-        },
-      ],
-    };
+const Main = () => {
+  const [personalInfo, setPersonalInfo] = useState({
+    firstName: '',
+    lastName: '',
+    profession: '',
+    address: '',
+    contact: '',
+    email: '',
+    description: '',
+  });
+  const [experience, setExperience] = useState([{ id: uuidv4() }]);
+  const [education, setEducation] = useState([{ id: uuidv4() }]);
 
-    this.handlePersonalInfoChange = this.handlePersonalInfoChange.bind(this);
-    this.handleExperienceChange = this.handleExperienceChange.bind(this);
-    this.handleDeleteExperience = this.handleDeleteExperience.bind(this);
-    this.handleAddExperience = this.handleAddExperience.bind(this);
-    this.handleEducationChange = this.handleEducationChange.bind(this);
-    this.handleDeleteEducation = this.handleDeleteEducation.bind(this);
-    this.handleAddEducation = this.handleAddEducation.bind(this);
-    this.handleReset = this.handleReset.bind(this);
-  }
-
-  handlePersonalInfoChange(prop, newInput) {
-    this.setState((prevState) => {
+  const handlePersonalInfoChange = (prop, newInput) => {
+    setPersonalInfo((prevPersonalInfo) => {
       return {
-        personalInfo: {
-          ...prevState.personalInfo,
-          [prop]: newInput,
-        },
+        ...prevPersonalInfo,
+        [prop]: newInput,
       };
     });
-  }
+  };
 
-  handleExperienceChange(id, prop, newInput) {
-    this.setState((prevState) => {
-      const newExp = prevState.experience.map((exp) => {
+  const handleExperienceChange = (id, prop, newInput) => {
+    setExperience((prevExp) => {
+      const newExp = prevExp.map((exp) => {
         if (exp.id === id) {
           return {
             ...exp,
@@ -53,35 +37,30 @@ class Main extends Component {
         return exp;
       });
 
-      return {
-        experience: newExp,
-      };
+      return newExp;
     });
-  }
+  };
 
-  handleDeleteExperience(id) {
-    this.setState((prevState) => {
-      const newExp = prevState.experience.filter((exp) => exp.id !== id);
-      return {
-        experience: newExp,
-      };
+  const handleDeleteExperience = (id) => {
+    setExperience((prevExp) => {
+      return prevExp.filter((exp) => exp.id !== id);
     });
-  }
+  };
 
-  handleAddExperience() {
-    this.setState((prevState) => ({
-      experience: [
-        ...prevState.experience,
+  const handleAddExperience = () => {
+    setExperience((prevExp) => {
+      return [
+        ...prevExp,
         {
           id: uuidv4(),
         },
-      ],
-    }));
-  }
+      ];
+    });
+  };
 
-  handleEducationChange(id, prop, newInput) {
-    this.setState((prevState) => {
-      const newEducation = prevState.education.map((edu) => {
+  const handleEducationChange = (id, prop, newInput) => {
+    setEducation((prevEdu) => {
+      const newEdu = prevEdu.map((edu) => {
         if (edu.id === id) {
           return {
             ...edu,
@@ -91,80 +70,73 @@ class Main extends Component {
         return edu;
       });
 
-      return {
-        education: newEducation,
-      };
+      return newEdu;
     });
-  }
+  };
 
-  handleDeleteEducation(id) {
-    this.setState((prevState) => {
-      const newEducation = prevState.education.filter((edu) => edu.id !== id);
-      return {
-        education: newEducation,
-      };
+  const handleDeleteEducation = (id) => {
+    setEducation((prevEdu) => {
+      return prevEdu.filter((edu) => edu.id !== id);
     });
-  }
+  };
 
-  handleAddEducation() {
-    this.setState((prevState) => ({
-      education: [
-        ...prevState.education,
+  const handleAddEducation = () => {
+    setEducation((prevEdu) => {
+      return [
+        ...prevEdu,
         {
           id: uuidv4(),
         },
-      ],
-    }));
-  }
+      ];
+    });
+  };
 
-  handleReset() {
-    this.setState({
-      personalInfo: {
-        firstName: '',
-        lastName: '',
-        profession: '',
-        address: '',
-        contact: '',
-        email: '',
-        description: '',
+  const handleReset = () => {
+    setPersonalInfo({
+      firstName: '',
+      lastName: '',
+      profession: '',
+      address: '',
+      contact: '',
+      email: '',
+      description: '',
+    });
+
+    setExperience([
+      {
+        id: uuidv4(),
       },
-      experience: [
-        {
-          id: uuidv4(),
-        },
-      ],
-      education: [
-        {
-          id: uuidv4(),
-        },
-      ],
-    });
-  }
+    ]);
 
-  render() {
-    return (
-      <main>
-        <CvForm
-          personalInfo={this.state.personalInfo}
-          onPersonalInfoChange={this.handlePersonalInfoChange}
-          experience={this.state.experience}
-          onExperienceChange={this.handleExperienceChange}
-          onDeleteExperience={this.handleDeleteExperience}
-          onAddExperience={this.handleAddExperience}
-          education={this.state.education}
-          onEducationChange={this.handleEducationChange}
-          onDeleteEducation={this.handleDeleteEducation}
-          onAddEducation={this.handleAddEducation}
-          onReset={this.handleReset}
-        />
-        <CvPreview
-          personalInfo={this.state.personalInfo}
-          experience={this.state.experience}
-          education={this.state.education}
-        />
-      </main>
-    );
-  }
-}
+    setEducation([
+      {
+        id: uuidv4(),
+      },
+    ]);
+  };
+
+  return (
+    <main>
+      <CvForm
+        personalInfo={personalInfo}
+        onPersonalInfoChange={handlePersonalInfoChange}
+        experience={experience}
+        onExperienceChange={handleExperienceChange}
+        onDeleteExperience={handleDeleteExperience}
+        onAddExperience={handleAddExperience}
+        education={education}
+        onEducationChange={handleEducationChange}
+        onDeleteEducation={handleDeleteEducation}
+        onAddEducation={handleAddEducation}
+        onReset={handleReset}
+      />
+      <CvPreview
+        personalInfo={personalInfo}
+        experience={experience}
+        education={education}
+      />
+    </main>
+  );
+};
 
 export default Main;

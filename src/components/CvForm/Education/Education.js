@@ -1,65 +1,55 @@
-import React, { Component } from 'react';
+import React from 'react';
 import EducationForm from './EducationForm';
 import styles from './Education.module.css';
 
-class Education extends Component {
-  constructor() {
-    super();
-
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleDeleteEducation = this.handleDeleteEducation.bind(this);
-    this.handleAddEducation = this.handleAddEducation.bind(this);
-  }
-
-  handleInputChange(id, e) {
-    const { onEducationChange } = this.props;
+const Education = ({
+  onEducationChange,
+  onDeleteEducation,
+  onAddEducation,
+  education,
+}) => {
+  const handleInputChange = (id, e) => {
     const { name, value } = e.target;
     onEducationChange(id, name, value);
-  }
+  };
 
-  handleDeleteEducation(id) {
-    const { onDeleteEducation } = this.props;
+  const handleDeleteEducation = (id) => {
     onDeleteEducation(id);
-  }
+  };
 
-  handleAddEducation() {
-    const { onAddEducation } = this.props;
+  const handleAddEducation = () => {
     onAddEducation();
-  }
+  };
 
-  render() {
-    const { education } = this.props;
-
-    if (education.length === 0) {
-      return (
-        <>
-          <h3 className={styles.title}>Education</h3>
-          <button
-            className={styles.button}
-            type="button"
-            onClick={this.handleAddEducation}
-          >
-            Add
-          </button>
-        </>
-      );
-    }
-
+  if (education.length === 0) {
     return (
       <>
         <h3 className={styles.title}>Education</h3>
-        {education.map((edu) => (
-          <EducationForm
-            key={edu.id}
-            id={edu.id}
-            onEducationChange={this.handleInputChange}
-            onDeleteEducation={this.handleDeleteEducation}
-            onAddEducation={this.handleAddEducation}
-          />
-        ))}
+        <button
+          className={styles.button}
+          type="button"
+          onClick={handleAddEducation}
+        >
+          Add
+        </button>
       </>
     );
   }
-}
+
+  return (
+    <>
+      <h3 className={styles.title}>Education</h3>
+      {education.map((edu) => (
+        <EducationForm
+          key={edu.id}
+          id={edu.id}
+          onEducationChange={handleInputChange}
+          onDeleteEducation={handleDeleteEducation}
+          onAddEducation={handleAddEducation}
+        />
+      ))}
+    </>
+  );
+};
 
 export default Education;
